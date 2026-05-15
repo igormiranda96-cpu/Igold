@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iGold Store — Especialista Apple</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #C9A227;
+    --gold-light: #F0CC5A;
+    --gold-dark: #9A7A0D;
+    --black: #0A0A0A;
+    --black-2: #111111;
+    --black-3: #1A1A1A;
+    --gray: #2A2A2A;
+    --gray-mid: #444;
+    --gray-light: #888;
+    --white: #F5F3EE;
+    --white-pure: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,162,39,0.15);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-circle {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: var(--gold);
+    line-height: 1.1;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .logo-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: var(--white);
+  }
+
+  .logo-text span { color: var(--gold); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  nav ul a {
+    color: var(--gray-light);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--black) !important;
+    padding: 0.5rem 1.4rem;
+    border-radius: 2px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--black) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 4rem;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,162,39,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,162,39,0.1);
+    border: 1px solid rgba(201,162,39,0.3);
+    border-radius: 2px;
+    padding: 0.4rem 1rem;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 2rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 8vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 .gold { color: var(--gold); }
+  .hero h1 .outline {
+    -webkit-text-stroke: 1px var(--white);
+    color: transparent;
+  }
+
+  .hero p {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--gray-light);
+    line-height: 1.7;
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    padding: 0.9rem 2.2rem;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    padding: 0.9rem 2.2rem;
+    border-radius: 2px;
+    border: 1px solid rgba(255,255,255,0.2);
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); }
+
+  .hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .phone-showcase {
+    position: relative;
+    width: 300px;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-18px); }
+  }
+
+  .phone-glow {
+    position: absolute;
+    inset: -60px;
+    background: radial-gradient(ellipse, rgba(201,162,39,0.18) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .phone-body {
+    width: 260px;
+    height: 520px;
+    background: linear-gradient(160deg, #2a2a2a 0%, #111 60%, #1a1a1a 100%);
+    border-radius: 38px;
+    border: 2px solid rgba(201,162,39,0.3);
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .phone-body::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 30%; right: 30%;
+    height: 28px;
+    background: #0A0A0A;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .phone-screen {
+    position: absolute;
+    inset: 10px;
+    border-radius: 30px;
+    background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    overflow: hidden;
+  }
+
+  .phone-apple {
+    font-size: 72px;
+    color: var(--gold);
+    filter: drop-shadow(0 0 20px rgba(201,162,39,0.4));
+  }
+
+  .phone-model {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 3px;
+    color: var(--white);
+  }
+
+  .phone-sub {
+    font-size: 12px;
+    color: var(--gray-light);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .phone-price-badge {
+    background: var(--gold);
+    color: var(--black);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-top: 8px;
+  }
+
+  .phone-reflection {
+    position: absolute;
+    top: 0; left: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.04) 0%, transparent 100%);
+    border-radius: 30px 0 0 30px;
+    pointer-events: none;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,162,39,0.1);
+    border: 1px solid rgba(201,162,39,0.15);
+    border-radius: 4px;
+    margin-top: 3rem;
+    overflow: hidden;
+  }
+
+  .stat {
+    padding: 1.2rem 1.5rem;
+    background: var(--black-2);
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--gray-light);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* DIFERENCIAIS */
+  .section {
+    padding: 6rem 4rem;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    color: var(--white);
+  }
+
+  .section-sub {
+    font-size: 15px;
+    color: var(--gray-light);
+    max-width: 500px;
+    line-height: 1.7;
+    margin-bottom: 3.5rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px;
+    background: var(--gray);
+    border: 1px solid var(--gray);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .feature-card {
+    background: var(--black-2);
+    padding: 2.5rem 2rem;
+    transition: background 0.3s;
+    cursor: default;
+  }
+
+  .feature-card:hover {
+    background: var(--black-3);
+  }
+
+  .feature-icon {
+    font-size: 32px;
+    margin-bottom: 1.5rem;
+    display: block;
+    filter: grayscale(0.3);
+  }
+
+  .feature-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 0.7rem;
+  }
+
+  .feature-desc {
+    font-size: 14px;
+    color: var(--gray-light);
+    line-height: 1.65;
+  }
+
+  .feature-line {
+    width: 30px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 1.5rem;
+    transition: width 0.3s;
+  }
+
+  .feature-card:hover .feature-line { width: 50px; }
+
+  /* PRODUTOS */
+  .products-section {
+    padding: 6rem 4rem;
+    background: var(--black-2);
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--gray);
+    border: 1px solid var(--gray);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 3.5rem;
+  }
+
+  .product-card {
+    background: var(--black-2);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: background 0.3s;
+    cursor: default;
+  }
+
+  .product-card:hover { background: var(--black-3); }
+
+  .product-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 2px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    width: fit-content;
+  }
+
+  .badge-novo { background: rgba(201,162,39,0.15); color: var(--gold-light); border: 1px solid rgba(201,162,39,0.3); }
+  .badge-lacrado { background: rgba(255,255,255,0.06); color: #aaa; border: 1px solid rgba(255,255,255,0.12); }
+  .badge-hot { background: rgba(220,60,40,0.15); color: #ff7b6b; border: 1px solid rgba(220,60,40,0.25); }
+
+  .product-emoji {
+    font-size: 48px;
+    margin: 0.5rem 0;
+    filter: grayscale(0.15);
+  }
+
+  .product-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: var(--white);
+  }
+
+  .product-desc {
+    font-size: 13px;
+    color: var(--gray-light);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .product-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+
+  .product-installment {
+    font-size: 12px;
+    color: var(--gray-light);
+    margin-top: -8px;
+  }
+
+  .product-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid rgba(201,162,39,0.3);
+    padding: 0.65rem 1.5rem;
+    border-radius: 2px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s, border-color 0.2s;
+    margin-top: 0.5rem;
+    width: fit-content;
+  }
+
+  .product-cta:hover { background: rgba(201,162,39,0.1); border-color: var(--gold); }
+
+  /* COMPARATIVO */
+  .compare-section {
+    padding: 6rem 4rem;
+  }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--gray);
+    border: 1px solid var(--gray);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 3.5rem;
+  }
+
+  .compare-card {
+    background: var(--black-2);
+    padding: 2.5rem 2rem;
+  }
+
+  .compare-card.igold {
+    background: linear-gradient(160deg, #181208 0%, var(--black-2) 100%);
+    border-top: 2px solid var(--gold);
+  }
+
+  .compare-head {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .compare-head .badge-rec {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--black);
+    padding: 3px 10px;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+
+  .compare-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .compare-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--gray-light);
+    line-height: 1.5;
+  }
+
+  .compare-list li .icon-yes { color: #5db870; font-size: 16px; margin-top: 1px; }
+  .compare-list li .icon-no { color: #cc4444; font-size: 16px; margin-top: 1px; }
+
+  /* DEPOIMENTOS */
+  .reviews-section {
+    padding: 6rem 4rem;
+    background: var(--black-2);
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--gray);
+    border: 1px solid var(--gray);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 3.5rem;
+  }
+
+  .review-card {
+    background: var(--black-2);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: background 0.3s;
+  }
+
+  .review-card:hover { background: var(--black-3); }
+
+  .stars {
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .review-text {
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.7;
+    font-style: italic;
+    flex: 1;
+  }
+
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .review-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--gold-dark);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    color: var(--black);
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+  }
+
+  .review-name { font-size: 13px; color: var(--white); font-weight: 500; }
+  .review-location { font-size: 11px; color: var(--gray-light); letter-spacing: 1px; }
+
+  /* CTA FINAL */
+  .cta-section {
+    padding: 8rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(ellipse, rgba(201,162,39,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-section .section-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+  }
+
+  .cta-section p {
+    font-size: 16px;
+    color: var(--gray-light);
+    max-width: 500px;
+    margin: 1rem auto 3rem;
+    line-height: 1.7;
+  }
+
+  .cta-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-whatsapp {
+    background: #25D366;
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: filter 0.2s, transform 0.15s;
+  }
+
+  .btn-whatsapp:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer {
+    padding: 3rem 4rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: gap;
+    gap: 1rem;
+  }
+
+  .footer-left { font-size: 13px; color: var(--gray-light); }
+  .footer-left span { color: var(--gold); }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    color: var(--gray-light);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold-light); }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 2px; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; gap: 3rem; }
+    .hero-right { order: -1; }
+    .phone-body { width: 200px; height: 400px; }
+    .hero h1 { font-size: 3.5rem; }
+    .section, .products-section, .compare-section, .reviews-section, .cta-section { padding: 4rem 1.5rem; }
+    .compare-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-circle">iGold<br>Store</div>
+    <span class="logo-text">i<span>Gold</span> Store</span>
+  </a>
+  <ul>
+    <li><a href="#produtos">Produtos</a></li>
+    <li><a href="#diferenciais">Por Que Nós</a></li>
+    <li><a href="#depoimentos">Clientes</a></li>
+    <li><a href="https://wa.me/5500000000000" class="nav-cta">Falar no WhatsApp</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Especialista Apple • Desde 2020</div>
+    <h1>
+      SEU NOVO<br>
+      <span class="gold">iPHONE</span><br>
+      <span class="outline">TE ESPERA</span>
+    </h1>
+    <p>iPhones novos e lacrados com garantia de fábrica. Até 18x no cartão ou via Pix. Confiança, procedência e entrega segura em todo o Brasil.</p>
+    <div class="hero-btns">
+      <a href="#produtos" class="btn-primary">Ver Produtos →</a>
+      <a href="https://wa.me/5500000000000" class="btn-secondary">💬 Falar Agora</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number">271+</div>
+        <div class="stat-label">Seguidores</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">18x</div>
+        <div class="stat-label">No Cartão</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Garantia</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="phone-showcase">
+      <div class="phone-glow"></div>
+      <div class="phone-body">
+        <div class="phone-screen">
+          <div class="phone-apple">🍎</div>
+          <div class="phone-model">iPHONE 16</div>
+          <div class="phone-sub">Pro Max · Lacrado</div>
+          <div class="phone-price-badge">A PARTIR DE R$ 6.999</div>
+        </div>
+        <div class="phone-reflection"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="section" id="diferenciais">
+  <div class="section-label">Por Que Escolher</div>
+  <h2 class="section-title fade-up">NOSSOS<br>DIFERENCIAIS</h2>
+  <p class="section-sub fade-up">Mais do que uma loja — somos especialistas Apple comprometidos com a sua satisfação.</p>
+  <div class="features-grid fade-up">
+    <div class="feature-card">
+      <div class="feature-line"></div>
+      <span class="feature-icon">📦</span>
+      <div class="feature-title">100% Lacrado</div>
+      <p class="feature-desc">Todos os nossos produtos chegam lacrados de fábrica, sem violação, com NF e garantia Apple.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-line"></div>
+      <span class="feature-icon">🔒</span>
+      <div class="feature-title">Compra Segura</div>
+      <p class="feature-desc">Processo de compra transparente, com rastreamento e confirmação em cada etapa do pedido.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-line"></div>
+      <span class="feature-icon">💳</span>
+      <div class="feature-title">Até 18x no Cartão</div>
+      <p class="feature-desc">Parcelamento facilitado em até 18 vezes ou desconto especial no Pix para pagamento à vista.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-line"></div>
+      <span class="feature-icon">🚚</span>
+      <div class="feature-title">Envio Rápido</div>
+      <p class="feature-desc">Entregamos para todo o Brasil com agilidade e embalagem reforçada para proteger seu produto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+<section class="products-section" id="produtos">
+  <div class="section-label">Estoque Disponível</div>
+  <h2 class="section-title fade-up">LINHA<br><span style="color:var(--gold)">iPHONE</span></h2>
+  <p class="section-sub fade-up">Escolha o modelo ideal para você. Todos lacrados, com garantia e nota fiscal.</p>
+  <div class="products-grid fade-up">
+    <div class="product-card">
+      <div class="product-badge badge-hot">🔥 Mais Vendido</div>
+      <div class="product-emoji">📱</div>
+      <div class="product-name">iPHONE 16 PRO MAX</div>
+      <p class="product-desc">O top de linha da Apple. Chip A18 Pro, câmera de 48MP, titanio, tela ProMotion 120Hz.</p>
+      <div class="product-price">A partir de R$ 8.999</div>
+      <div class="product-installment">ou 18x de R$ 499 sem juros</div>
+      <a href="https://wa.me/5500000000000?text=Quero%20saber%20mais%20sobre%20o%20iPhone%2016%20Pro%20Max" class="product-cta">Consultar disponibilidade →</a>
+    </div>
+    <div class="product-card">
+      <div class="product-badge badge-novo">Novo</div>
+      <div class="product-emoji">📱</div>
+      <div class="product-name">iPHONE 16</div>
+      <p class="product-desc">Chip A18, Dynamic Island, câmera Fusion 48MP e o melhor custo-benefício da linha 2024.</p>
+      <div class="product-price">A partir de R$ 6.999</div>
+      <div class="product-installment">ou 18x de R$ 388 sem juros</div>
+      <a href="https://wa.me/5500000000000?text=Quero%20saber%20mais%20sobre%20o%20iPhone%2016" class="product-cta">Consultar disponibilidade →</a>
+    </div>
+    <div class="product-card">
+      <div class="product-badge badge-lacrado">Lacrado</div>
+      <div class="product-emoji">📱</div>
+      <div class="product-name">iPHONE 15 PRO</div>
+      <p class="product-desc">Titanio, chip A17 Pro, câmera 48MP com zoom 3x e Action Button. Excelência Apple.</p>
+      <div class="product-price">A partir de R$ 6.299</div>
+      <div class="product-installment">ou 18x de R$ 349 sem juros</div>
+      <a href="https://wa.me/5500000000000?text=Quero%20saber%20mais%20sobre%20o%20iPhone%2015%20Pro" class="product-cta">Consultar disponibilidade →</a>
+    </div>
+    <div class="product-card">
+      <div class="product-badge badge-lacrado">Lacrado</div>
+      <div class="product-emoji">📱</div>
+      <div class="product-name">iPHONE 14</div>
+      <p class="product-desc">Chip A15, câmera dupla de 12MP, Crash Detection e a qualidade Apple a um preço acessível.</p>
+      <div class="product-price">A partir de R$ 4.499</div>
+      <div class="product-installment">ou 18x de R$ 249 sem juros</div>
+      <a href="https://wa.me/5500000000000?text=Quero%20saber%20mais%20sobre%20o%20iPhone%2014" class="product-cta">Consultar disponibilidade →</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIVO -->
+<section class="compare-section">
+  <div class="section-label">Transparência Total</div>
+  <h2 class="section-title fade-up">COMPRAR<br><span style="color:var(--gold)">iGOLD</span> vs<br>PARTICULAR</h2>
+  <div class="compare-grid fade-up">
+    <div class="compare-card">
+      <div class="compare-head" style="color:#777;">Comprar Particular</div>
+      <ul class="compare-list">
+        <li><span class="icon-no">✗</span> Sem garantia ou garantia incerta</li>
+        <li><span class="icon-no">✗</span> Sem nota fiscal</li>
+        <li><span class="icon-no">✗</span> Risco de produto bloqueado ou com pendências</li>
+        <li><span class="icon-no">✗</span> Sem procedência verificada</li>
+        <li><span class="icon-no">✗</span> Suporte zero após a venda</li>
+        <li><span class="icon-no">✗</span> Pagamento com risco de golpe</li>
+      </ul>
+    </div>
+    <div class="compare-card igold">
+      <div class="compare-head" style="color:var(--gold-light);">iGold Store <span class="badge-rec">Recomendado</span></div>
+      <ul class="compare-list">
+        <li><span class="icon-yes">✓</span> Garantia Apple de fábrica</li>
+        <li><span class="icon-yes">✓</span> Nota fiscal em todos os produtos</li>
+        <li><span class="icon-yes">✓</span> Produto lacrado e com procedência</li>
+        <li><span class="icon-yes">✓</span> Aparelho revisado e certificado</li>
+        <li><span class="icon-yes">✓</span> Suporte completo pós-venda</li>
+        <li><span class="icon-yes">✓</span> Pagamento seguro — cartão ou Pix</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="reviews-section" id="depoimentos">
+  <div class="section-label">Clientes Satisfeitos</div>
+  <h2 class="section-title fade-up">O QUE ESTÃO<br>DIZENDO...</h2>
+  <div class="reviews-grid fade-up">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Recebi o iPhone 15 Pro lacrado, com NF e chegou em 2 dias. Processo super tranquilo, recomendo demais a iGold!"</p>
+      <div class="review-author">
+        <div class="review-avatar">MC</div>
+        <div>
+          <div class="review-name">Maria Clara S.</div>
+          <div class="review-location">São Paulo, SP</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Melhor experiência de compra que já tive. iPhone lacrado, nota fiscal e o atendimento foi excepcional. Voltarei com certeza."</p>
+      <div class="review-author">
+        <div class="review-avatar">RO</div>
+        <div>
+          <div class="review-name">Rafael Oliveira</div>
+          <div class="review-location">Belo Horizonte, MG</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Parcelei em 18x sem juros e recebi o produto em perfeito estado. Confiança total. Vale cada centavo!"</p>
+      <div class="review-author">
+        <div class="review-avatar">JF</div>
+        <div>
+          <div class="review-name">Julia Fernandes</div>
+          <div class="review-location">Goiânia, GO</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="section-label">Fale Conosco Agora</div>
+  <h2 class="section-title fade-up">PRONTO PARA<br>SEU NOVO<br><span style="color:var(--gold)">iPHONE?</span></h2>
+  <p class="fade-up">Entre em contato pelo WhatsApp e nossos especialistas vão te ajudar a encontrar o modelo perfeito para você.</p>
+  <div class="cta-btns fade-up">
+    <a href="https://wa.me/5500000000000?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20iPhones%20da%20iGold%20Store" class="btn-whatsapp">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Chamar no WhatsApp
+    </a>
+    <a href="https://instagram.com/igold_storev" class="btn-secondary" target="_blank">📸 Ver no Instagram</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    © 2025 <span>iGold Store</span>. Todos os direitos reservados.
+  </div>
+  <ul class="footer-links">
+    <li><a href="https://instagram.com/igold_storev" target="_blank">Instagram</a></li>
+    <li><a href="https://wa.me/5500000000000">WhatsApp</a></li>
+    <li><a href="#produtos">Produtos</a></li>
+  </ul>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
